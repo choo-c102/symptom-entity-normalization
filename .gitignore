@@ -1,0 +1,16 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+
+# Database & Secrets
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+#Working notebooks
+notebooks/Fine-tuning BioMed-RoBERTa.ipynb
+notebooks/metamap_NER.ipynb
+notebooks/Training spaCy.ipynb

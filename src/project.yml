@@ -1,0 +1,87 @@
+title: "Custom NER Training with spaCy"
+description: "Project to train a custom NER model using a spaCy pipeline and manual optimizer loop."
+
+vars:
+  config: "config.cfg"
+  name: "ner_model"
+  version: "0.1.0"
+
+directories: ["configs", "scripts"]
+
+workflows:
+  all:
+    - custom-train-fold0
+    - custom-train-fold1
+    - custom-train-fold2
+    - custom-train-fold3
+    - custom-train-fold4
+    - evaluate-fold0
+    - evaluate-fold1
+    - evaluate-fold2
+    - evaluate-fold3
+    - evaluate-fold4
+
+commands:
+  - name: custom-train-fold0
+    help: "Train fold 0"
+    script:
+      - "python /content/ner_drugs/scripts/custom_train.py /content/fold0_train.spacy /content/fold0_dev.spacy /content/drive/MyDrive/spacy_checkpoints_2"
+
+  - name: custom-train-fold1
+    help: "Train fold 1"
+    script:
+      - "python /content/ner_drugs/scripts/custom_train.py /content/fold1_train.spacy /content/fold1_dev.spacy /content/drive/MyDrive/spacy_checkpoints_2_1"
+
+  - name: custom-train-fold2
+    help: "Train fold 2"
+    script:
+      - "python /content/ner_drugs/scripts/custom_train.py /content/fold2_train.spacy /content/fold2_dev.spacy /content/drive/MyDrive/spacy_checkpoints_2_2"
+
+  - name: custom-train-fold3
+    help: "Train fold 3"
+    script:
+      - "python /content/ner_drugs/scripts/custom_train.py /content/fold3_train.spacy /content/fold3_dev.spacy /content/drive/MyDrive/spacy_checkpoints_2_3"
+
+  - name: custom-train-fold4
+    help: "Train fold 4"
+    script:
+      - "python /content/ner_drugs/scripts/custom_train.py /content/fold4_train.spacy /content/fold4_dev.spacy /content/drive/MyDrive/spacy_checkpoints_2_4"
+
+  - name: evaluate-fold0
+    help: "Evaluate fold 0"
+    script:
+      - "python -m spacy evaluate /content/drive/MyDrive/spacy_checkpoints_2/final_model /content/fold0_dev.spacy --output /content/drive/MyDrive/spacy_checkpoints_2/metrics_fold0.json"
+    deps:
+      - "/content/drive/MyDrive/spacy_checkpoints_2/final_model"
+      - "/content/fold0_dev.spacy"
+    outputs:
+      - "/content/drive/MyDrive/spacy_checkpoints_2/metrics_fold0.json"
+
+  - name: evaluate-fold1
+    help: "Evaluate fold 1"
+    script:
+      - "python -m spacy evaluate /content/drive/MyDrive/spacy_checkpoints_2_1/final_model /content/fold1_dev.spacy --output /content/drive/MyDrive/spacy_checkpoints_2_1/metrics_fold1.json"
+
+  - name: evaluate-fold2
+    help: "Evaluate fold 2"
+    script:
+      - "python -m spacy evaluate /content/drive/MyDrive/spacy_checkpoints_2_2/final_model /content/fold2_dev.spacy --output /content/drive/MyDrive/spacy_checkpoints_2_2/metrics_fold2.json"
+
+  - name: evaluate-fold3
+    help: "Evaluate fold 3"
+    script:
+      - "python -m spacy evaluate /content/drive/MyDrive/spacy_checkpoints_2_3/final_model /content/fold3_dev.spacy --output /content/drive/MyDrive/spacy_checkpoints_2_3/metrics_fold3.json"
+
+  - name: evaluate-fold4
+    help: "Evaluate fold 4"
+    script:
+      - "python -m spacy evaluate /content/drive/MyDrive/spacy_checkpoints_2_4/final_model /content/fold4_dev.spacy --output /content/drive/MyDrive/spacy_checkpoints_2_4/metrics_fold4.json"
+
+  - name: package
+    help: "Package the trained model"
+    script:
+      - "python -m spacy package /content/drive/MyDrive/spacy_checkpoints_2/final_model /content/packages --name ${vars.name} --version ${vars.version} --force"
+    deps:
+      - "/content/drive/MyDrive/spacy_model_2/final_model"
+    outputs_no_cache:
+      - "/content/packages/en_${vars.name}-${vars.version}/dist/en_${vars.name}-${vars.version}.tar.gz"
