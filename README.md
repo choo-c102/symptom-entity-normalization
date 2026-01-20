@@ -47,7 +47,6 @@ The codes were used as a part of a Master’s thesis in Data Science and Busines
 
 **How to Run**
 [Not advisible for now as the repo is undergoing internal updates] 
-
-Secrets: Set up your ENTREZ_EMAIL and UMLS_API_KEY in the Google Colab Secrets manager pr in .env file (see .env.examples for format and requires keys)
-Execution: Open the notebooks in Google Colab to leverage GPU acceleration for the transformer models.
-Dependencies: Run pip install -r requirements.txt to install dependencies
+- Secrets: Set up ENTREZ_EMAIL, UMLS_API_KEY, MONGODB URI in the Google Colab Secrets manager or in .env file (see .env.examples for format and requires keys)
+- Execution: Open the notebooks in Google Colab to leverage GPU acceleration for the transformer models, or locally if GPU is available.
+- Dependencies: Run pip install -r requirements.txt to install dependencies
