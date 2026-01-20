@@ -2,7 +2,7 @@
 ## Project Overview
 This repository documents the steps taken to produce the paper exploring the semantic and linguistic disparities between formal medical literature (PubMed Central) and informal patient narratives (Reddit). By developing a custom Named Entity Recognition (NER) and normalization pipeline, this project quantifies how patients describe symptoms compared to how they are documented in clinical research.
 
-The codes were used as a part of a Master’s thesis in Data Science and Business Analytics, focusing on Pancreatic Cancer symptoms—a domain where early symptom detection is critical for survival rates. The paper can be found [here]([url](https://www.academia.edu/146227609/Bridging_the_Gap_Extracting_and_Analyzing_Symptom_Entities_in_Online_Health_Forums_and_Medical_Research_Literature?source=swp_share)). 
+The codes were used as a part of a Master’s thesis in Data Science and Business Analytics, focusing on Pancreatic Cancer symptoms—a domain where early symptom detection is critical for survival rates. The paper can be found [here](https://www.academia.edu/146227609/Bridging_the_Gap_Extracting_and_Analyzing_Symptom_Entities_in_Online_Health_Forums_and_Medical_Research_Literature?source=swp_share). 
 
 :bangbang: **It is not advisible to run the codes now as the dependencies may not be consistent and complete yet, but reviewers are free to view the outputs of the existing notebooks or refer to the paper for figures/metrics.** 
 
