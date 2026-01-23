@@ -4,17 +4,15 @@ This repository documents the steps taken to produce the paper exploring the sem
 
 The codes were used as a part of a Master’s thesis in Data Science and Business Analytics, focusing on Pancreatic Cancer symptoms—a domain where early symptom detection is critical for survival rates. The paper can be found [here](https://www.academia.edu/146227609/Bridging_the_Gap_Extracting_and_Analyzing_Symptom_Entities_in_Online_Health_Forums_and_Medical_Research_Literature?source=swp_share). 
 
-:bangbang: **It is not advisible to run the codes now as the dependencies may not be consistent and complete yet, but reviewers are free to view the outputs of the existing notebooks or refer to the paper for figures/metrics.** 
-
-:warning: **Notebooks 4, 5, 6 containing the codes to fine-tuning BioMed-RoBERTa, spaCy, and MetaMapLite are undergoing internal updates and will be uploaded on a later data.**
+:bangbang: **Notebooks 6 is still undergoing internal update and cleanup, please do not try to run it. Automated scripts are still in the process of cleanup and will be available soon**
 
 ### Tech Stack
 
 - Models: BioBERT, BioMed-RoBERTa (Fine-tuned via Hugging Face)
 
-- Frameworks: spaCy, Scikit-learn (TF-IDF, K-Means)
+- Frameworks: spaCy, Scikit-learn (TF-IDF, K-Means), LDA, HuggingFace
 
-- Data Ingestion: PRAW (Reddit API), NCBI Entrez (PubMed API)
+- Data Ingestion: PRAW (Reddit API), NCBI Entrez (PubMed API), HuggingFace Dataset
 
 - Medical Ontology: UMLS Metathesaurus (Mapping to Concept Unique Identifiers - CUIs)
 
@@ -25,7 +23,7 @@ The codes were used as a part of a Master’s thesis in Data Science and Busines
 ### Methodology & Pipeline
 - Corpus Acquisition: Automated extraction of 8,000+ Reddit submissions and 250+ biomedical articles, creating a 600,000-token cross-genre corpus.
 
-- NER Modeling: Evaluated three frameworks (spaCy, BioBERT, and BioMed-RoBERTa). BioMed-RoBERTa emerged as the top performer with an F1-score of 0.83.
+- NER Modeling: Evaluated three frameworks (spaCy, BioBERT, and BioMed-RoBERTa). BioMed-RoBERTa emerged as the top performer with an F1-score of 0.81.
 
 - Entity Normalization: Leveraged MetaMapLite and the UMLS API to normalize informal language (e.g., "yellow eyes") to formal medical concepts (e.g., Jaundice).
 
