@@ -29,6 +29,9 @@ The codes were used as a part of a Master’s thesis in Data Science and Busines
 
 - Statistical Analysis: Performed Chi-Square tests for homogeneity to validate that the symptoms identified in patient forums significantly differ in context and frequency from clinical literature.
 
+<img width="1277" height="524" alt="image" src="https://github.com/user-attachments/assets/895313f3-d523-423a-85bf-5d9c14262f8f" />
+
+
 ### Key Research Findings
 - Symptom Nuance: Patients focus heavily on the quality of life and sensory aspects of symptoms, whereas literature focuses on pathophysiological markers.
 
